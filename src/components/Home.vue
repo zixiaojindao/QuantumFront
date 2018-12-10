@@ -22,6 +22,27 @@
     </div>
 </template>
 <script>
+import axios from 'axios';
 export default {
+    data: function() {
+        return {
+            info: null,
+            loading: true,
+            errored: false
+        };
+    },
+  /* eslint-disable */
+  mounted () {
+    axios.get('https://api.coindesk.com/v1/bpi/currentprice.json')
+        .then(response => {
+            this.info = response.data.bpi;
+            console.log(this.info);
+        })
+        .catch(error => {
+            console.log(error);
+            this.errored = true;
+        })
+        .finally(() => this.loading = false)
+  }
 };
 </script>
