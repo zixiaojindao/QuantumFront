@@ -27,12 +27,16 @@
     </div>
 </template>
 <script>
+import axios from 'axios';
 export default {
     data() {
         return {
             restaurants: [],
             state4: '',
-            timeout: null
+            timeout: null,
+            info: null,
+            loading: true,
+            errored: false
         };
     },
     methods: {
@@ -70,8 +74,20 @@ export default {
         handleSelect(item) {
         }
     },
+    /* eslint-disable */
     mounted() {
         this.restaurants = this.loadAll();
+        axios.get('https://api.coindesk.com/v1/bpi/currentprice.json')
+        .then(response => {
+            this.info = response.data.bpi;
+            console.log(this.info);
+        })
+        .catch(error => {
+            console.log(error);
+            this.errored = true;
+        })
+        .finally(() => this.loading = false)
     }
+
 };
 </script>
