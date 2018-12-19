@@ -9,128 +9,13 @@
                         <div class="ibox-content">
                             <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
                                 <thead>
-                                   
+
                                 </thead>
-                                <tbody>
+                                <tbody v-for="(item,index) in companysinfo" :key="index">
                                     <tr>
-                                        <td class="col-md-2">公司名称</td>
-                                        <td  class="col-md-10">万科企业股份邮箱公司</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-md-2">曾用名</td>
-                                        <td  class="col-md-10">万科企业股份邮箱公司</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-md-2">英文名称</td>
-                                        <td  class="col-md-10">万科企业股份邮箱公司</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-md-2">公司简介</td>
-                                        <td  class="col-md-10">万科企业股份邮箱公司</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-md-2">经营范围</td>
-                                        <td  class="col-md-10">万科企业股份邮箱公司</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-md-2">国籍</td>
-                                        <td  class="col-md-10">万科企业股份邮箱公司</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-md-2">成立日期</td>
-                                        <td  class="col-md-10">万科企业股份邮箱公司</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-md-2">统一社会信用代码</td>
-                                        <td  class="col-md-10">万科企业股份邮箱公司</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-md-2">注册资本</td>
-                                        <td  class="col-md-10">万科企业股份邮箱公司</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-md-2">货币资本</td>
-                                        <td  class="col-md-10">万科企业股份邮箱公司</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-md-2">法定代表人</td>
-                                        <td  class="col-md-10">万科企业股份邮箱公司</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-md-2">实际控制人</td>
-                                        <td  class="col-md-10">万科企业股份邮箱公司</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-md-2">第一大股东</td>
-                                        <td  class="col-md-10">万科企业股份邮箱公司</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-md-2">第一大股东(持股比例)</td>
-                                        <td  class="col-md-10">万科企业股份邮箱公司</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-md-2">主营构成(最新年报)</td>
-                                        <td  class="col-md-10">万科企业股份邮箱公司</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-md-2">所属证监会行业</td>
-                                        <td  class="col-md-10">万科企业股份邮箱公司</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-md-2">所属Wind行业</td>
-                                        <td  class="col-md-10">万科企业股份邮箱公司</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-md-2">所属Wind主题行业</td>
-                                        <td  class="col-md-10">万科企业股份邮箱公司</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-md-2">员工总数</td>
-                                        <td  class="col-md-10">万科企业股份邮箱公司</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-md-2">总经理</td>
-                                        <td  class="col-md-10">万科企业股份邮箱公司</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-md-2">董事会秘书</td>
-                                        <td  class="col-md-10">万科企业股份邮箱公司</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-md-2">省份</td>
-                                        <td  class="col-md-10">万科企业股份邮箱公司</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-md-2">城市</td>
-                                        <td  class="col-md-10">万科企业股份邮箱公司</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-md-2">注册地址</td>
-                                        <td  class="col-md-10">万科企业股份邮箱公司</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-md-2">办公地址</td>
-                                        <td  class="col-md-10">万科企业股份邮箱公司</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-md-2">邮编</td>
-                                        <td  class="col-md-10">万科企业股份邮箱公司</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-md-2">电话</td>
-                                        <td  class="col-md-10">万科企业股份邮箱公司</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-md-2">传真</td>
-                                        <td  class="col-md-10">万科企业股份邮箱公司</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-md-2">电子邮件</td>
-                                        <td  class="col-md-10">万科企业股份邮箱公司</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-md-2">公司网站</td>
-                                        <td  class="col-md-10">万科企业股份邮箱公司</td>
+                                        <td class="col-md-2">{{item.key}}</td>
+                                        <td  class="col-md-10" style="text-align: left;" v-if="item.value==='null'"></td>
+                                        <td  class="col-md-10" style="text-align: left;" v-if="item.value!=='null'">{{item.value}}</td>
                                     </tr>
                                 </tbody>
                                 <tfoot>
@@ -149,6 +34,32 @@
         </div>
 </template>
 <script>
+import axios from 'axios';
 export default {
+    data() {
+        return {
+            companysinfo: [],
+            loading: true,
+            errored: false,
+            windCode: ''
+        };
+    },
+   /* eslint-disable */
+    mounted() {
+          this.windCode = this.$route.query.windCode;
+          //axios.get('http://172.28.32.22:8080/quickcompanies')
+          //axios.defaults.headers['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
+          axios.get('/api/companyInfo/' + this.windCode)
+          .then(response => {
+              response.data.forEach(data => {
+                this.companysinfo.push(data);
+            });
+          })
+          .catch(error => {
+              console.log(error);
+              this.errored = true;
+          })
+          .finally(() => this.loading = false)
+    }
 };
 </script>

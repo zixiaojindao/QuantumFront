@@ -8,22 +8,28 @@
                          <div style="width: 1000px;margin: 0 auto;padding-top: 35px;">
                            <el-autocomplete
                             class="inline-input"
-                            v-model="state2"
+                            v-model="searchcompany"
                             :fetch-suggestions="querySearch"
-                            placeholder="请输入内容"
+                            placeholder="请输入公司名称、人名、品牌名称等关键词"
                             :trigger-on-focus="false"
-                            @select="handleSelect"
                             style="width: 600px;"
                             >
                             </el-autocomplete>
-                            <el-button slot="append">天眼一下</el-button>
+                            <el-button slot="append" style="margin-left: -9px;width: 105px;" @click="handleSelect()">搜索一下</el-button>
                          </div>
                         <h2>
-                             <span class="text-navy" style="font-size: 15px;">热点搜索  人人网  腾讯  马蜂窝  百度外卖  子弹短信  美团点评  京东数科  当当网  海航科技  趣头条  蔚来汽车  滴滴出行  
+                             <span class="text-navy" style="font-size: 15px;">热点搜索  人人网  腾讯  马蜂窝  百度外卖  子弹短信  美团点评  京东数科  当当网  海航科技  趣头条  蔚来汽车  滴滴出行
                              陌陌科技  中国金融期货交易所
                              </span>
                         </h2>
+                        <div style="margin-top: 25px;padding-left: 19px;font-size: 0;text-align: center;overflow: hidden;">
+                        <div style="display: inline-block;width: 44px;height: 44px;    overflow: hidden;border: 1px solid rgba(255, 255, 255, 0.5);    margin-right: 10px;padding-top: 4px;font-size: 14px;    line-height: 14px;color: #e0e0e0;background: rgba(255, 255, 255, 0.15);">
+
+                        </div>
+
                     </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -36,11 +42,12 @@ export default {
         return {
             companys: [],
             restaurants: [],
-            state2: '',
+            searchcompany: '',
             timeout: null,
             info: null,
             loading: true,
-            errored: false
+            errored: false,
+            windCode: ''
         };
     },
     methods: {
@@ -54,7 +61,17 @@ export default {
                 return (company.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0);
             };
         },
-        handleSelect(item) {
+         /* eslint-disable */
+        handleSelect() {
+            for(let i = 0; i < this.companys.length; i++) {
+                if(this.companys[i].value == this.searchcompany) {
+                   console.log(this.companys[i].value);
+                   console.log(this.companys[i].windCode);
+                   this.windCode = this.companys[i].windCode;
+                   break;
+                }
+            }
+            this.$router.push({name: 'CompanyInfo', query: {windCode: this.windCode}});
         }
     },
     /* eslint-disable */
@@ -64,7 +81,7 @@ export default {
         axios.get('/api/quickcompanies')
         .then(response => {
             response.data.forEach(data => {
-                let company = {'value': data.companyName};
+                let company = {'value': data.companyName, 'windCode':data.windCode};
                 this.companys.push(company);
             });
         })
