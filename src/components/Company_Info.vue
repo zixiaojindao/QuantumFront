@@ -19,14 +19,13 @@
                                     </tr>
                                 </tbody>
                                 <tfoot>
-                                <tr>
-                                    <td colspan="5">
-                                        <ul class="pagination pull-right"></ul>
-                                    </td>
-                                </tr>
+                                  <tr>
+                                      <td colspan="5">
+                                          <ul class="pagination pull-right"></ul>
+                                      </td>
+                                  </tr>
                                 </tfoot>
                             </table>
-
                         </div>
                     </div>
                 </div>
@@ -36,17 +35,16 @@
 <script>
 import axios from 'axios';
 export default {
+    props: ['windCode'],
     data() {
         return {
             companysinfo: [],
             loading: true,
-            errored: false,
-            windCode: ''
+            errored: false
         };
     },
    /* eslint-disable */
     mounted() {
-          this.windCode = this.$route.query.windCode;
           //axios.get('http://172.28.32.22:8080/quickcompanies')
           //axios.defaults.headers['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
           axios.get('/api/companyInfo/' + this.windCode)

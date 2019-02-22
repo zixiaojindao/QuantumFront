@@ -4,7 +4,7 @@
             <div class="col-lg-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-content text-center p-md">
-                         <h2><span class="text-navy" style="font-size: 45px;">量子企业信用工具</span></h2>
+                        <h2><span class="text-navy" style="font-size: 45px;">量子企业信用工具</span></h2>
                          <div style="width: 1000px;margin: 0 auto;padding-top: 35px;">
                            <el-autocomplete
                             class="inline-input"
@@ -23,13 +23,10 @@
                              </span>
                         </h2>
                         <div style="margin-top: 25px;padding-left: 19px;font-size: 0;text-align: center;overflow: hidden;">
-                        <div style="display: inline-block;width: 44px;height: 44px;    overflow: hidden;border: 1px solid rgba(255, 255, 255, 0.5);    margin-right: 10px;padding-top: 4px;font-size: 14px;    line-height: 14px;color: #e0e0e0;background: rgba(255, 255, 255, 0.15);">
-
-                        </div>
-
+                          <div style="display: inline-block;width: 44px;height: 44px;    overflow: hidden;border: 1px solid rgba(255, 255, 255, 0.5);    margin-right: 10px;padding-top: 4px;font-size: 14px;    line-height: 14px;color: #e0e0e0;background: rgba(255, 255, 255, 0.15);">
+                          </div>
+                      </div>
                     </div>
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -38,6 +35,7 @@
 <script>
 import axios from 'axios';
 export default {
+    props: ['windCode'],
     data() {
         return {
             companys: [],
@@ -46,8 +44,7 @@ export default {
             timeout: null,
             info: null,
             loading: true,
-            errored: false,
-            windCode: ''
+            errored: false
         };
     },
     methods: {
@@ -63,15 +60,17 @@ export default {
         },
          /* eslint-disable */
         handleSelect() {
-            for(let i = 0; i < this.companys.length; i++) {
-                if(this.companys[i].value == this.searchcompany) {
-                   console.log(this.companys[i].value);
-                   console.log(this.companys[i].windCode);
-                   this.windCode = this.companys[i].windCode;
+            let self = this;
+            for(let i = 0; i < self.companys.length; i++) {
+                if(self.companys[i].value == self.searchcompany) {
+                   console.log(self.companys[i].value);
+                   console.log(self.companys[i].windCode);
+                   self.windCode = self.companys[i].windCode;
                    break;
                 }
             }
-            this.$router.push({name: 'CompanyInfo', query: {windCode: this.windCode}});
+            self.$emit('setwindCode',self.windCode);
+            self.$router.push({name: 'CompanyInfo', query: {windCode: self.windCode}});
         }
     },
     /* eslint-disable */
@@ -91,6 +90,5 @@ export default {
         })
         .finally(() => this.loading = false)
     }
-
 };
 </script>
