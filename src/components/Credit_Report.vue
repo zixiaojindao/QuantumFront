@@ -129,9 +129,9 @@
                                 <thead>
                                     <tr>
                                         <th>报告期:{{value}}</th>
-                                        <th>总资产(亿元)</th>
-                                        <th>总负债(亿元)</th>
-                                        <th>收入(亿元)</th>
+                                        <th>总资产</th>
+                                        <th>总负债</th>
+                                        <th>收入</th>
                                         <th>毛利率</th>
                                         <th>总资产收益率</th>
                                         <th>经营活动净现金流利息保障倍数</th>
@@ -148,19 +148,21 @@
                                 <tbody>
                                   <tr>
                                         <td>本企业</td>
-                                        <th v-for="(item,index) in frs_ratio[0]" :key="index" >{{item}}</th>
-                                        <!-- <th>{{frs_ratio.FRS.BS.TotalAsset}}</th>
-                                        <th>{{frs_ratio.FRS.BS.TotalAsset}}</th>
-                                        <th>{{frs_ratio.FRS.BS.TotalAsset}}</th>
-                                        <th>{{frs_ratio.FRS.BS.TotalAsset}}</th>
-                                        <th>{{frs_ratio.FRS.BS.TotalAsset}}</th>
-                                        <th>{{frs_ratio.FRS.BS.TotalAsset}}</th>
-                                        <th>{{frs_ratio.FRS.BS.TotalAsset}}</th>
-                                        <th>{{frs_ratio.FRS.BS.TotalAsset}}</th>
-                                        <th>{{frs_ratio.FRS.BS.TotalAsset}}</th>
-                                        <th>{{frs_ratio.FRS.BS.TotalAsset}}</th>
-                                        <th>{{frs_ratio.FRS.BS.TotalAsset}}</th>
-                                        <th>{{frs_ratio.FRS.BS.TotalAsset}}</th> -->
+                                        <!-- <th v-for="(item,index) in frs_ratio[0]" :key="index" >{{item}}</th> -->
+                                        <th>{{frs_ratio[0].FRS_BS_TotalAsset}}</th>
+                                        <th>{{frs_ratio[0].FRS_BS_TotalLiablity}}</th>
+                                        <th>{{frs_ratio[0].FRS_Earnings_Revenue}}</th>
+                                        <th>{{frs_ratio[0].FRS_Earnings_GrossMargin}}</th>
+                                        <th>{{frs_ratio[0].FRS_Earnings_ROA}}</th>
+                                        <th>{{frs_ratio[0].FRS_DebtPayment_NetCFOInterestCoverage}}</th>
+                                        <th>{{frs_ratio[0].FRS_DebtPayment_CFO2Liability}}</th>
+                                        <th>{{frs_ratio[0].FRS_DebtPayment_EBITInterestCoverage}}</th>
+                                        <th>{{frs_ratio[0].FRS_DebtPayment_EBIT2TotalLiabilityCompute}}</th>
+                                        <th>{{frs_ratio[0].FRS_CapitalStructure_Liability2Asset}}</th>
+                                        <th>{{frs_ratio[0].FRS_CapitalStructure_Liability2LiabilityAndEquity}}</th>
+                                        <th>{{frs_ratio[0].FRS_CapitalStructure_CurrentRatio}}</th>
+                                        <th>{{frs_ratio[0].FRS_Operating_InventoryTurnover}}</th>
+                                        <th>{{frs_ratio[0].FRS_Operating_A/RTurnover}}</th>
                                   </tr>
                                 </tbody>
                                 <tfoot>
@@ -199,6 +201,7 @@ export default {
                 this.errored = true;
             })
             .finally(() => this.loading = false)
+            //this.loading = false;
     },
     mounted() {
           //axios.get('http://172.28.32.22:8080/quickcompanies')
@@ -236,7 +239,7 @@ export default {
 
                  axios.get('/api/credit_report/get_frs_ratio/wind_code/' + this.windCode +'/report_date/' + this.value)
                 .then(response => {
-                     this.frs_ratio = [];
+                    this.frs_ratio = [];
                     console.log(response.data)
                     this.frs_ratio.push(response.data);
                 })

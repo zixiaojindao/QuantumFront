@@ -11,7 +11,7 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {'/api':{
-      target: 'http://172.28.32.31:8080',
+      target: 'http://39.98.210.33:8080/quantbond',
       changeOrigin: true,
       pathRewrite:{
         '^/api': ''
