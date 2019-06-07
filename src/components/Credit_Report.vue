@@ -24,7 +24,7 @@
                         <h5>总体摘要</h5>
                     </div>
                     <div class="ibox-content">
-                        <h5>万科企业股份有限公司</h5>
+                        <h5 v-html='company.compName'></h5>
                         <div class="ibox-content">
                             <table class="table table-bordered" >
                                 <thead>
@@ -183,6 +183,7 @@ export default {
         return {
             report_dates: [],
             abstract: '',
+            company: null,
             rating: '',
             loading: true,
             errored: false,
@@ -193,14 +194,14 @@ export default {
     },
   /* eslint-disable */
     created: function() {
-            axios.get('/api/credit_report/summary/update_frs/wind_code/' + this.windCode)
+            /*axios.get('/api/credit_report/summary/update_frs/wind_code/' + this.windCode)
             .then(response => {
             })
             .catch(error => {
                 console.log(error);
                 this.errored = true;
             })
-            .finally(() => this.loading = false)
+            .finally(() => this.loading = false)*/
             //this.loading = false;
     },
     mounted() {
@@ -217,6 +218,16 @@ export default {
                axios.get('/api/credit_report/get_summary/wind_code/' + this.windCode +'/report_date/' + this.value)
                 .then(response => {
                     this.abstract = response.data;
+                })
+                .catch(error => {
+                    console.log(error);
+                    this.errored = true;
+                })
+                .finally(() => this.loading = false)
+
+                axios.get('/api/companyInfoEntity/' + this.windCode)
+                .then(response => {
+                    this.company = response.data;
                 })
                 .catch(error => {
                     console.log(error);
